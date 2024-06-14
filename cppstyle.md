@@ -4,7 +4,7 @@ Except in the instances listed below I follow the Google C++ style guide found [
 
 ## CPP Standard
 
-Use any version you like, but newer is better.
+Use any version after Cpp 11 you like, but newer is better. Cpp 11 is as old as anyone wants to maintain.
 
 ## File Naming
 
@@ -23,3 +23,11 @@ Whenever there is an alternative available in the standard library prefer using 
 ## Enums
 
 Prefer use of scoped enums over unscoped enums. Use static casts if necessary to convert to integer type.
+
+## Documentation
+
+Generally it is good to follow Google's comments guide. Use the /* */ style except for single line comments. A new * should be included on every line in the comment for alignment. There should be no text on the first or last lines of the comment. Comments should be formatted for use with Doxygen.
+
+## Clang Format
+
+I also include my clang format here. Its useful, mostly just uses google. Disables include ordering because it doesn't properly separate external libraries from local sources.
