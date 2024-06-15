@@ -1,33 +1,62 @@
 # My Personal CPP Style Guide
 
-Except in the instances listed below I follow the Google C++ style guide found [here](https://google.github.io/styleguide/cppguide.html). As I program and more fully understand Google's style guide I will make updates to this style guide.
+My style guide uses Google formatting and naming conventions, and CPP core guidelines for other style decisions. Personal rules are listed below. Included here as well are the standard tools I use.
 
-## CPP Standard
+## Code Standards
 
-Use any version after Cpp 11 you like, but newer is better. Cpp 11 is as old as anyone wants to maintain.
+### CPP Standard
 
-## File Naming
+Use any version after CPP 11 you like, but newer is better. CPP 11 is as old as anyone wants to maintain.
 
-Use .cpp file extension for source files. This file extension seems to be more broadly used than the .cc file extension Google uses.
+### Line Length
 
-Use .hpp file extension for header files. I like the differentiation this makes from C header files.
+I use a line length of 120. This is promotes descriptive variable names and prevents the splitting of certain logic that is more understandable on one line. It still still preferable to use shorted lines when possible.
 
-## Exceptions
+### Boost
 
-Google doesn't use exceptions because of the difficulty of implementing them with existing code. All the code I'm writing is new and thus should use exceptions.
+Whenever there is an alternative available in the standard library prefer using that over Boost. (ex. Boost::hash) Otherwise there are no limits on the use of Boost.
 
-## Boost
+### Documentation
 
-Whenever there is an alternative available in the standard library prefer using that over Boost. (ex. Boost::hash) Otherwise there are no limits on the use of Boost, there is no need to stick to the approved libraries from Google.
+Every non trivial public function or class should have a doxygen style comment with the following style.
 
-## Enums
+``` cpp
+/**
+ * Comments here
+ */
+ ```
 
-Prefer use of scoped enums over unscoped enums. Use static casts if necessary to convert to integer type.
+Other than that follow cpp core guide lines suggestions.
 
-## Documentation
+## Tools
 
-Generally it is good to follow Google's comments guide. Use the /* */ style except for single line comments. A new * should be included on every line in the comment for alignment. There should be no text on the first or last lines of the comment. Comments should be formatted for use with Doxygen.
+### Clang Format
 
-## Clang Format
+Included here is my .clang-format file. It uses Google's style guide with an extended line length.
 
-I also include my clang format here. Its useful, mostly just uses google. Disables include ordering because it doesn't properly separate external libraries from local sources.
+Include ordering is also disabled as it doesn't recognize external libraries correctly.
+
+### Clang Tidy
+
+Included here is my .clang-tidy file. It has default clang-tidy rules, and cppcoreguidlines rules enabled.
+
+### Visual Studio
+
+I use Visual Studio as my development environment as it has the most seamless integration of cpp features. Note that this does not limit the use of other environments if you so choose.
+
+In Visual Studio I disable Microsoft's code analysis and just use clang tidy.
+You can see how this is done in the include CMakeSettings.json
+
+Visual is configured to format with clang format on save. Modifying Visual Studio behavior to follow Google's formatting is useful.
+
+### Compilers
+
+I use the clang compiler as it is cross platform. Though code should be written to be portable and cross platform.
+
+### CMake
+
+Use Cmake for the build system. If compiling libraries, compile the library and include it in all the targets to prevent recompiling files over and over again.
+
+### Unit Testing
+
+So far I use the Boost testing framework, though future work may switch to Gtest. All tests should be able to run with Ctest.
