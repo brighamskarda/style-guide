@@ -2,3 +2,5 @@ Checks: >
   -*,
   clang-analyzer-*,
   cppcoreguidelines-*
+
+ExcludeHeaderFilterRegex: '*boost*'

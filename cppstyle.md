@@ -51,7 +51,7 @@ Visual is configured to format with clang format on save. Modifying Visual Studi
 
 ### Compilers
 
-I use the clang compiler as it is cross platform. Though code should be written to be portable and cross platform.
+All code should be portable. Use the most popular compiler for your system. GCC for linux, MSVC for windows, clang for mac.
 
 ### CMake
 
