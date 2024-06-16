@@ -40,14 +40,11 @@ Include ordering is also disabled as it doesn't recognize external libraries cor
 
 Included here is my .clang-tidy file. It has default clang-tidy rules, and cppcoreguidlines rules enabled.
 
-### Visual Studio
+LLVM 19 is required for the include .clang-tidy file to work correctly.
 
-I use Visual Studio as my development environment as it has the most seamless integration of cpp features. Note that this does not limit the use of other environments if you so choose.
+### CLion
 
-In Visual Studio I disable Microsoft's code analysis and just use clang tidy.
-You can see how this is done in the include CMakeSettings.json
-
-Visual is configured to format with clang format on save. Modifying Visual Studio behavior to follow Google's formatting is useful.
+I use CLion for my development environment. It is cross platform, and does not require a continued subscription (you just lose updates). For the most part I let CLion include its default code checks next to clang-tiday
 
 ### Compilers
 
@@ -59,4 +56,4 @@ Use Cmake for the build system. If compiling libraries, compile the library and 
 
 ### Unit Testing
 
-So far I use the Boost testing framework, though future work may switch to Gtest. All tests should be able to run with Ctest.
+So far I use the Boost testing framework, though future work may switch to GTest. All tests should be able to run with CTest.
